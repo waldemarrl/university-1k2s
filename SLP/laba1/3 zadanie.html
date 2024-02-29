@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Time</title>
+    <script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+.letter{
+background-color: rgb(255, 255, 255);
+text-align: center;
+width: 50px;
+height: 50px;
+float: left;
+}
+.chess{
+width: 400px;
+height: 400px;
+}
+.white{
+background-color: rgb(204, 166, 83);
+width: 50px;
+height: 50px;
+float: left;
+}
+.black{
+background-color: rgb(85, 47, 47);
+width: 50px;
+height: 50px;
+float: left;
+}
+.blocks{
+margin: 50px 25px;
+}
+.block{
+display: flex;
+justify-content: center;
+}
+.let{
+    text-align: center;
+width: 20px;
+height: 50px;
+}
+</style>
+</head>
+<body>
+<div id="chess"></div>
+<script type="text/babel">
+const Chess = () => {
+const letters = ["A", "B", "C", "D", "E", "F", "G", "H"];
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8];
+let Desk = [];
+let num = 0;
+
+for (let i = 1; i < 9; i++) {
+for (let j = 1; j < 9; j++) {
+
+if (num % 2 === 0) {
+
+Desk.push(<div className='black'></div>)
+}
+else {
+Desk.push(<div className='white'></div>)
+}
+num++;
+}
+num++;
+}
+
+let arr_letters =
+letters.map((index) => {
+return <div className='letter'>{index}</div>
+});
+let arr_numbers =
+numbers.map((index) => {
+return <div className='let'>{index}</div>
+});
+
+Desk.push(arr_letters)
+Desk.unshift(arr_letters)
+return (
+<div className='block'>
+<div className="blocks"> {arr_numbers}</div>
+<div className='chess'> {Desk}</div>
+<div className="blocks"> {arr_numbers}</div>
+</div>
+);
+}
+ReactDOM.render(
+<Chess/>,
+document.getElementById('chess')
+);
+</script>
+</body>
+</html>

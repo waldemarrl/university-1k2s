@@ -1,0 +1,54 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+nav {
+  height: 50px;
+  width: 100%;
+  background-color: rgb(146, 0, 127);
+  position: fixed;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+}
+
+main {
+  padding: 50px;
+}
+
+p {
+  margin: 20px;
+}
+
+.JobMenu {
+  width: 20px;
+  height: 20px;
+  margin-left: 20px;
+  position: relative;
+  cursor: pointer;
+}
+.JobMenu::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 20px;
+  background-color: lavender;
+  height: 2px;
+}
+.JobMenu span {
+  position: absolute;
+  top: 9px;
+  width: 20px;
+  background-color: lavender;
+  height: 2px;
+}
+.JobMenu::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 20px;
+  background-color: lavender;
+  height: 1.5px;
+}
